@@ -16,16 +16,23 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject[] _powerupCards;
     [SerializeField] private Transform _debugSreen;
     [SerializeField] private GameObject _swordProjectile;
+    [SerializeField] private GameObject _enemyPrefab;
+
+    // Стата игрока
+    public float _health = 100;
     public float _playerSpeed = 5;
     public float _attackCooldown = 2;
     public float _projectileSize = 1;
     public float _projectileDamage = 1;
+    public int _projectileLeft = 1;
+    private bool AbleToFire = true;
 
+    // Уровень
     private int Level = 0;
     private int LevelExperience = 0;
+
     private Vector2 MovementInput;
     private VirtualMouseInput virtualMouseInput;
-    private bool AbleToFire = true;
 
 
 
@@ -37,7 +44,12 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            Vector3 mousePos = Mouse.current.position.ReadValue();
+            mousePos.z = 10f;
+            Instantiate(_enemyPrefab, Camera.main.ScreenToWorldPoint(mousePos), new Quaternion());
+        }
     }
 
     private void FixedUpdate()
@@ -76,7 +88,7 @@ public class PlayerController : MonoBehaviour
         if (LevelExperience >= 10)
         {
             Level++;
-            LevelExperience = 0;
+            LevelExperience -= 10;
             for (int i = 0; i < 3; i++)
             {
                 Instantiate(_powerupCards[Random.Range(0, _powerupCards.Length)], _pickPowerupUI.transform);
@@ -96,6 +108,7 @@ public class PlayerController : MonoBehaviour
         _debugSreen.GetComponentsInChildren<TMP_Text>()[4].text = "Level = " + Level;
         _debugSreen.GetComponentsInChildren<TMP_Text>()[5].text = "LevelExperience = " + LevelExperience;
         _debugSreen.GetComponentsInChildren<TMP_Text>()[6].text = "AbleToFire? = " + AbleToFire;
+        _debugSreen.GetComponentsInChildren<TMP_Text>()[7].text = "_projectileLeft = " + _projectileLeft;
     }
     /*
     private void OnTriggerEnter2D(Collider2D collision)
@@ -118,9 +131,21 @@ public class PlayerController : MonoBehaviour
         if (!AbleToFire) return;
         AbleToFire = false;
 
+        // Получение точки в пространстве от мыши
+        Vector3 mousePos = new Vector3(0, 0, 0);
+        if (_playerInput.currentControlScheme == "Keyboard&Mouse")
+        {
+            mousePos = Mouse.current.position.ReadValue();
+        }
+        else if (_playerInput.currentControlScheme == "Gamepad")
+        {
+            mousePos = virtualMouseInput.cursorTransform.position;
+        }
+        mousePos.z = 10f;
+        Vector3 worldPoint = Camera.main.ScreenToWorldPoint(mousePos);
+
         GameObject proj = Instantiate(_swordProjectile, transform);
-        proj.transform.position += new Vector3(1.2f, 0, 0);
-        proj.GetComponent<swordProjectile>().TakeStats(_projectileDamage);
+        proj.GetComponent<SwordProjectile>().TakeInfo(this, (worldPoint - transform.position).normalized, _projectileDamage, _projectileLeft, true);
 
         StartCoroutine(AttackCooldownReset());
         UpdateDebugScreen();

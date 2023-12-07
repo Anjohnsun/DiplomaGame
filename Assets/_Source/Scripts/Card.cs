@@ -8,6 +8,7 @@ public class Card : MonoBehaviour
     [SerializeField] private float _changeAttackCooldown = 0;
     [SerializeField] private float _changeProjectileSize = 0;
     [SerializeField] private float _changeProjectileDamage = 0;
+    [SerializeField] private int _changeProjectileLeft = 0;
 
     private PlayerController PlayerC;
 
@@ -18,10 +19,11 @@ public class Card : MonoBehaviour
 
     public void AssignValues()
     {
-        PlayerC._playerSpeed *= _changePlayerSpeed;
-        PlayerC._attackCooldown *= _changeAttackCooldown;
-        PlayerC._projectileSize *= _changeProjectileSize;
-        PlayerC._projectileDamage *= _changeProjectileDamage;
+        PlayerC._playerSpeed *= CheckForZero(_changePlayerSpeed);
+        PlayerC._attackCooldown *= CheckForZero(_changeAttackCooldown);
+        PlayerC._projectileSize *= CheckForZero(_changeProjectileSize);
+        PlayerC._projectileDamage *= CheckForZero(_changeProjectileDamage);
+        PlayerC._projectileLeft += _changeProjectileLeft;
 
         for (int i = 0; i < transform.parent.childCount; i++)
         {
@@ -30,5 +32,12 @@ public class Card : MonoBehaviour
         }
 
         PlayerC.UpdateDebugScreen();
+    }
+
+    // ѕровер€ет нужно ли мен€ть число и возращает обратно
+    private float CheckForZero(float value)
+    {
+        if (value == 0) return 1;
+        return value;
     }
 }

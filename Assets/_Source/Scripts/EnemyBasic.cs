@@ -28,6 +28,7 @@ public class EnemyBasic : MonoBehaviour
             
             Destroy(gameObject);
         }
+        Debug.Log("Damaged!");
     }
 
     IEnumerator TemporaryRed(Color color)
@@ -35,4 +36,9 @@ public class EnemyBasic : MonoBehaviour
         yield return new WaitForSeconds(.2f);
         transform.GetChild(0).GetComponent<SpriteRenderer>().color = color;
     }
+    /*
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.G)) { TakeDmg(1); }
+    }*/
 }

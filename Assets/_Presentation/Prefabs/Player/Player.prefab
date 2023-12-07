@@ -244,9 +244,13 @@ MonoBehaviour:
   - {fileID: 8681320546917839065, guid: 8fd0608e79dceae4d9f665a19096f124, type: 3}
   - {fileID: 8681320546917839065, guid: d03765de5d6ccf043a8325eb829f44c5, type: 3}
   - {fileID: 8681320546917839065, guid: 314ac076cdd898a478680ba29028b55e, type: 3}
+  - {fileID: 8681320546917839065, guid: 404790c5075176e44a5bfb0fdf11566e, type: 3}
   _debugSreen: {fileID: 0}
   _swordProjectile: {fileID: 5040127518232979572, guid: 1b2fa217e64b85946891c9bc862cadb8, type: 3}
+  _enemyPrefab: {fileID: 5487636312511136363, guid: d3ad17cf665b36341a240728a44f0517, type: 3}
+  _health: 100
   _playerSpeed: 5
   _attackCooldown: 1
   _projectileSize: 1
   _projectileDamage: 1
+  _projectileLeft: 1
