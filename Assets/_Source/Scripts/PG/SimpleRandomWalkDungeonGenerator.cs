@@ -11,6 +11,13 @@ public class SimpleRandomWalkDungeonGenerator : AbstractDungeonGenerator
     [SerializeField]
     protected SimpleRandomWalkSO randomWalkParameters;
 
+    [SerializeField] private bool _generateOnStart;
+
+    private void Start()
+    {
+        if (_generateOnStart)
+            GenerateDungeon();
+    }
 
     protected override void RunProceduralGeneration()
     {

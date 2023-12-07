@@ -8,7 +8,8 @@ public class EnemyBasic : MonoBehaviour
     [SerializeField] private float _health = 1;
     [SerializeField] private GameObject _expPrefab;
 
-
+    [SerializeField] private Transform _player;
+    [SerializeField] private float enemySpeed;
 
     public void TakeDmg(float dmg)
     {
@@ -25,7 +26,7 @@ public class EnemyBasic : MonoBehaviour
                 GameObject expGO = Instantiate(_expPrefab, transform.position, new Quaternion());
                 expGO.GetComponent<Experience>().TakeExp(Random.Range(1, 5));
             }
-            
+
             Destroy(gameObject);
         }
         Debug.Log("Damaged!");
@@ -36,9 +37,13 @@ public class EnemyBasic : MonoBehaviour
         yield return new WaitForSeconds(.2f);
         transform.GetChild(0).GetComponent<SpriteRenderer>().color = color;
     }
-    /*
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G)) { TakeDmg(1); }
-    }*/
+        if (Vector3.Distance(transform.position, _player.position) < 5)
+        {
+            Vector3 dir = (_player.position - transform.position) * Time.deltaTime * enemySpeed;
+            transform.Translate(dir.x, dir.y, dir.z);
+        }
+    }
 }
