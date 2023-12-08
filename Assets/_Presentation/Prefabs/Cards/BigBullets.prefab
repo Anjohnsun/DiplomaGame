@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3163657270785153255, guid: 4cd2b467519721d4f948fe78dca88c30, type: 3}
       propertyPath: m_text
-      value: Rapid
+      value: I need big bullets
       objectReference: {fileID: 0}
     - target: {fileID: 5071533783920454893, guid: 4cd2b467519721d4f948fe78dca88c30, type: 3}
       propertyPath: m_Pivot.x
@@ -93,25 +93,19 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5863537861818198604, guid: 4cd2b467519721d4f948fe78dca88c30, type: 3}
-      propertyPath: _changePlayerSpeed
+      propertyPath: _changeProjectileSize
       value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 5863537861818198604, guid: 4cd2b467519721d4f948fe78dca88c30, type: 3}
-      propertyPath: _changeAttackCooldown
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5863537861818198604, guid: 4cd2b467519721d4f948fe78dca88c30, type: 3}
       propertyPath: _changeProjectileDamage
-      value: 0.9
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 6062041542486431447, guid: 4cd2b467519721d4f948fe78dca88c30, type: 3}
       propertyPath: m_text
-      value: '<color=green>-50% <color=white>Cooldown
+      value: '<color=green>     +30% <color=white>Projectile size
 
-        <color=green>     
-        More <color=white>Player speed
-
-        <color=red>Less <color=white>Damage'
+        <color=green>+10%
+        <color=white>Damage   .'
       objectReference: {fileID: 0}
     - target: {fileID: 6062041542486431447, guid: 4cd2b467519721d4f948fe78dca88c30, type: 3}
       propertyPath: m_isRightToLeft

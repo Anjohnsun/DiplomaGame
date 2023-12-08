@@ -19,12 +19,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _enemyPrefab;
 
     // Стата игрока
-    public float _health = 100;
+    public float _playerHealth = 100;
     public float _playerSpeed = 5;
     public float _attackCooldown = 2;
     public float _projectileSize = 1;
     public float _projectileDamage = 1;
     public int _projectileLeft = 1;
+    //public bool _autoFirePerk = false;
+    //private bool AutoFire = false;
     private bool AbleToFire = true;
 
     // Уровень
@@ -50,6 +52,8 @@ public class PlayerController : MonoBehaviour
             mousePos.z = 10f;
             Instantiate(_enemyPrefab, Camera.main.ScreenToWorldPoint(mousePos), new Quaternion());
         }
+
+        //if (AutoFire && AbleToFire) FireSword();
     }
 
     private void FixedUpdate()
@@ -109,6 +113,7 @@ public class PlayerController : MonoBehaviour
         _debugSreen.GetComponentsInChildren<TMP_Text>()[5].text = "LevelExperience = " + LevelExperience;
         _debugSreen.GetComponentsInChildren<TMP_Text>()[6].text = "AbleToFire? = " + AbleToFire;
         _debugSreen.GetComponentsInChildren<TMP_Text>()[7].text = "_projectileLeft = " + _projectileLeft;
+        _debugSreen.GetComponentsInChildren<TMP_Text>()[8].text = "_playerHealth = " + _playerHealth;
     }
     /*
     private void OnTriggerEnter2D(Collider2D collision)
@@ -120,17 +125,8 @@ public class PlayerController : MonoBehaviour
         }
     }*/
 
-    // Управление
-    private void OnMove(InputValue inputValue)
+    private void FireSword()
     {
-        MovementInput = inputValue.Get<Vector2>();
-    }
-
-    private void OnFire()
-    {
-        if (!AbleToFire) return;
-        AbleToFire = false;
-
         // Получение точки в пространстве от мыши
         Vector3 mousePos = new Vector3(0, 0, 0);
         if (_playerInput.currentControlScheme == "Keyboard&Mouse")
@@ -149,6 +145,23 @@ public class PlayerController : MonoBehaviour
 
         StartCoroutine(AttackCooldownReset());
         UpdateDebugScreen();
+    }
+
+    // Управление
+    private void OnMove(InputValue inputValue)
+    {
+        MovementInput = inputValue.Get<Vector2>();
+    }
+
+    private void OnFire()
+    {
+        if (!AbleToFire) return;
+        AbleToFire = false;
+        /*
+        if (context.performed && _autoFirePerk) AutoFire = true;
+        else if (context.canceled && _autoFirePerk) AutoFire = false;
+        */
+        FireSword();
     }
 
     IEnumerator AttackCooldownReset()
