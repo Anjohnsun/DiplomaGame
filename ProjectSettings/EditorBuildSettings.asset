@@ -8,5 +8,8 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/_Presentation/Scenes/Prototype.unity
+    guid: eeb69d68a7ad36149b3e0c8173f620cf
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

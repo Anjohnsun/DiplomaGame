@@ -112,6 +112,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 5
   _expPrefab: {fileID: 1347987723188727043, guid: b1ee05adea5b4374498e0c5befb88a03, type: 3}
+  _player: {fileID: 0}
+  enemySpeed: 2
 --- !u!1 &8463714670241639084
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,11 +1,10 @@
-using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBasic : MonoBehaviour
 {
-    [SerializeField] private float _health = 1;
+    [SerializeField] private float _health = 5;
     [SerializeField] private GameObject _expPrefab;
 
     [SerializeField] private Transform _player;

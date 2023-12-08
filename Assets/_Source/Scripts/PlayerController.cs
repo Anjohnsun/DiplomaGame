@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.InputSystem.UI;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _pickPowerupUI;
     [SerializeField] private GameObject[] _powerupCards;
     [SerializeField] private Transform _debugSreen;
+    [SerializeField] private GameObject _newDrawsText;
     [SerializeField] private GameObject _swordProjectile;
     [SerializeField] private GameObject _enemyPrefab;
 
@@ -28,6 +30,8 @@ public class PlayerController : MonoBehaviour
     //public bool _autoFirePerk = false;
     //private bool AutoFire = false;
     private bool AbleToFire = true;
+    private bool AbleToDraw = false;
+    private int LevelsToDraw = 0;
 
     // Уровень
     private int Level = 0;
@@ -93,10 +97,8 @@ public class PlayerController : MonoBehaviour
         {
             Level++;
             LevelExperience -= 10;
-            for (int i = 0; i < 3; i++)
-            {
-                Instantiate(_powerupCards[Random.Range(0, _powerupCards.Length)], _pickPowerupUI.transform);
-            }
+            LevelsToDraw++;
+            UpdateNewDrawsText();
         }
 
         UpdateDebugScreen();
@@ -114,7 +116,26 @@ public class PlayerController : MonoBehaviour
         _debugSreen.GetComponentsInChildren<TMP_Text>()[6].text = "AbleToFire? = " + AbleToFire;
         _debugSreen.GetComponentsInChildren<TMP_Text>()[7].text = "_projectileLeft = " + _projectileLeft;
         _debugSreen.GetComponentsInChildren<TMP_Text>()[8].text = "_playerHealth = " + _playerHealth;
+        _debugSreen.GetComponentsInChildren<TMP_Text>()[9].text = "AbleToDraw? = " + AbleToDraw;
+        _debugSreen.GetComponentsInChildren<TMP_Text>()[10].text = "LevelsToDraw = " + LevelsToDraw;
     }
+
+    public void UpdateNewDrawsText(bool disableDrawing = false)
+    {
+        TMP_Text text = _newDrawsText.GetComponent<TMP_Text>();
+        if (disableDrawing || LevelsToDraw == 0)
+        {
+            text.gameObject.SetActive(false);
+            AbleToDraw = false;
+            UpdateDebugScreen();
+            return;
+        }
+        text.gameObject.SetActive(true);
+        text.text = LevelsToDraw + " New Draws!";
+        AbleToDraw = true;
+        UpdateDebugScreen();
+    }
+
     /*
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -164,10 +185,41 @@ public class PlayerController : MonoBehaviour
         FireSword();
     }
 
+    private void OnLevelUp(InputValue inputValue)
+    {
+        if (!AbleToDraw) return;
+        LevelsToDraw--;
+
+        for (int i = 0; i < 3; i++)
+        {
+            Instantiate(_powerupCards[Random.Range(0, _powerupCards.Length)], _pickPowerupUI.transform);
+        }
+
+        if (_playerInput.currentControlScheme == "Gamepad")
+        {
+            _pickPowerupUI.transform.GetComponentInChildren<Button>().Select();
+        }
+
+        UpdateNewDrawsText(true);
+    }
+
     IEnumerator AttackCooldownReset()
     {
         yield return new WaitForSeconds(_attackCooldown);
         AbleToFire = true;
         UpdateDebugScreen();
+    }
+
+
+    // Костыльный дамаг
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            _playerHealth -= 10;
+            UpdateDebugScreen();
+
+            if (_playerHealth < 1) SceneManager.LoadScene(0);
+        }
     }
 }

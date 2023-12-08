@@ -13,7 +13,7 @@ public class Card : MonoBehaviour
 
     private PlayerController PlayerC;
 
-    private void Start()
+    private void Awake()
     {
         PlayerC = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
@@ -33,6 +33,7 @@ public class Card : MonoBehaviour
             Destroy(transform.parent.GetChild(i).gameObject, .1f);
         }
 
+        PlayerC.UpdateNewDrawsText();
         PlayerC.UpdateDebugScreen();
     }
 
