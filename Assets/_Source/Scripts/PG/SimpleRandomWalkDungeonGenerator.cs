@@ -7,16 +7,19 @@ using Random = UnityEngine.Random;
 
 public class SimpleRandomWalkDungeonGenerator : AbstractDungeonGenerator
 {
+    public static HashSet<Vector2Int> FloorPositions;
 
     [SerializeField]
     protected SimpleRandomWalkSO randomWalkParameters;
 
     [SerializeField] private bool _generateOnStart;
+    [SerializeField] EnemySpawner spawner;
 
     private void Start()
     {
         if (_generateOnStart)
             GenerateDungeon();
+        spawner.Spawn();
     }
 
     protected override void RunProceduralGeneration()
@@ -25,6 +28,8 @@ public class SimpleRandomWalkDungeonGenerator : AbstractDungeonGenerator
         tilemapVisualizer.Clear();
         tilemapVisualizer.PaintFloorTiles(floorPositions);
         WallGenerator.CreateWalls(floorPositions, tilemapVisualizer);
+
+        FloorPositions = floorPositions;
     }
 
     protected HashSet<Vector2Int> RunRandomWalk(SimpleRandomWalkSO parameters, Vector2Int position)

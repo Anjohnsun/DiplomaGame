@@ -771,6 +771,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &342728786 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5487636312511136363, guid: d3ad17cf665b36341a240728a44f0517, type: 3}
+  m_PrefabInstance: {fileID: 1141209247}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &421187774
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1553,6 +1558,7 @@ GameObject:
   - component: {fileID: 2041146436}
   - component: {fileID: 2041146438}
   - component: {fileID: 2041146437}
+  - component: {fileID: 2041146439}
   m_Layer: 0
   m_Name: Generator+Drawer
   m_TagString: Untagged
@@ -1617,6 +1623,21 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0}
   randomWalkParameters: {fileID: 11400000, guid: 49417390d7b7ea94a86c8c5b5a093317, type: 2}
   _generateOnStart: 1
+  spawner: {fileID: 2041146439}
+--- !u!114 &2041146439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041146433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25ea292d9607e67459527cf349dd1620, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyNumber: 105
+  _enemyPrefab: {fileID: 342728786}
 --- !u!1001 &2084205369
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1704,7 +1725,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2092610878
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1720,10 +1741,10 @@ RectTransform:
   - {fileID: 160159059}
   m_Father: {fileID: 179610878}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 567, y: 319}
-  m_SizeDelta: {x: 125.0936, y: 56.6931}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -83, y: -48}
+  m_SizeDelta: {x: 125.09363, y: 56.693115}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2092610879
 MonoBehaviour:
