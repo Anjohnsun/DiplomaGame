@@ -9,7 +9,12 @@ public class EnemyBasic : MonoBehaviour
     [SerializeField] private GameObject _expPrefab;
 
     [SerializeField] private Transform _player;
-    [SerializeField] private float enemySpeed;
+    [SerializeField] private float enemySpeed = 2;
+
+    private void Start()
+    {
+        _player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
 
     public void TakeDmg(float dmg)
     {

@@ -113,6 +113,7 @@ public class PlayerController : MonoBehaviour
         _debugSreen.GetComponentsInChildren<TMP_Text>()[5].text = "LevelExperience = " + LevelExperience;
         _debugSreen.GetComponentsInChildren<TMP_Text>()[6].text = "AbleToFire? = " + AbleToFire;
         _debugSreen.GetComponentsInChildren<TMP_Text>()[7].text = "_projectileLeft = " + _projectileLeft;
+        _debugSreen.GetComponentsInChildren<TMP_Text>()[8].text = "_playerHealth = " + _playerHealth;
     }
     /*
     private void OnTriggerEnter2D(Collider2D collision)
