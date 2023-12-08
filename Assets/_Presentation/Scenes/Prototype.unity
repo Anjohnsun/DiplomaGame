@@ -1636,7 +1636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25ea292d9607e67459527cf349dd1620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyNumber: 105
+  _enemyNumber: 40
   _enemyPrefab: {fileID: 342728786}
 --- !u!1001 &2084205369
 PrefabInstance:
