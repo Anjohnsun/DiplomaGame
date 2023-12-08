@@ -94,25 +94,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5863537861818198604, guid: 4cd2b467519721d4f948fe78dca88c30, type: 3}
       propertyPath: _changePlayerSpeed
-      value: 0.8
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 5863537861818198604, guid: 4cd2b467519721d4f948fe78dca88c30, type: 3}
       propertyPath: _changeAttackCooldown
-      value: 2
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 5863537861818198604, guid: 4cd2b467519721d4f948fe78dca88c30, type: 3}
       propertyPath: _changeProjectileDamage
-      value: 1.4
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 6062041542486431447, guid: 4cd2b467519721d4f948fe78dca88c30, type: 3}
       propertyPath: m_text
-      value: '<color=green>x1.4 <color=black>Damage
+      value: '<color=green>+20% <color=white>Damage
 
-        <color=red>       x0.8
-        <color=black>Player speed
+        <color=red>        -10%
+        <color=white>Player speed
 
-        <color=red>A lot more <color=black>fire
-        cooldown .'
+        <color=red>More <color=white>Fire cooldown'
       objectReference: {fileID: 0}
     - target: {fileID: 6062041542486431447, guid: 4cd2b467519721d4f948fe78dca88c30, type: 3}
       propertyPath: m_isRightToLeft
@@ -121,6 +120,10 @@ PrefabInstance:
     - target: {fileID: 7052942618841809137, guid: 4cd2b467519721d4f948fe78dca88c30, type: 3}
       propertyPath: m_Name
       value: Damager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910831593641988122, guid: 4cd2b467519721d4f948fe78dca88c30, type: 3}
+      propertyPath: m_text
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
