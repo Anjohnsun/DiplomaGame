@@ -5,6 +5,7 @@ using UnityEngine;
 public class Card : MonoBehaviour
 {
     [SerializeField] private float _changePlayerSpeed = 0;
+    [SerializeField] private float _changePlayerHealth = 0;
     [SerializeField] private float _changeAttackCooldown = 0;
     [SerializeField] private float _changeProjectileSize = 0;
     [SerializeField] private float _changeProjectileDamage = 0;
@@ -20,6 +21,7 @@ public class Card : MonoBehaviour
     public void AssignValues()
     {
         PlayerC._playerSpeed *= CheckForZero(_changePlayerSpeed);
+        PlayerC._playerHealth *= CheckForZero(_changePlayerHealth);
         PlayerC._attackCooldown *= CheckForZero(_changeAttackCooldown);
         PlayerC._projectileSize *= CheckForZero(_changeProjectileSize);
         PlayerC._projectileDamage *= CheckForZero(_changeProjectileDamage);

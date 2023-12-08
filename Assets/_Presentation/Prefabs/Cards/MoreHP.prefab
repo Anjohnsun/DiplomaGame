@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3163657270785153255, guid: 4cd2b467519721d4f948fe78dca88c30, type: 3}
       propertyPath: m_text
-      value: Rapid
+      value: More health
       objectReference: {fileID: 0}
     - target: {fileID: 5071533783920454893, guid: 4cd2b467519721d4f948fe78dca88c30, type: 3}
       propertyPath: m_Pivot.x
@@ -92,26 +92,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5863537861818198604, guid: 4cd2b467519721d4f948fe78dca88c30, type: 3}
-      propertyPath: _changePlayerSpeed
-      value: 1.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5863537861818198604, guid: 4cd2b467519721d4f948fe78dca88c30, type: 3}
-      propertyPath: _changeAttackCooldown
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5863537861818198604, guid: 4cd2b467519721d4f948fe78dca88c30, type: 3}
-      propertyPath: _changeProjectileDamage
-      value: 0.9
-      objectReference: {fileID: 0}
     - target: {fileID: 6062041542486431447, guid: 4cd2b467519721d4f948fe78dca88c30, type: 3}
       propertyPath: m_text
-      value: '<color=green>-50% <color=white>Cooldown
-
-        <color=green>     
-        More <color=white>Player speed
-
-        <color=red>Less <color=white>Damage'
+      value: <color=green>+20% <color=white>Health
       objectReference: {fileID: 0}
     - target: {fileID: 6062041542486431447, guid: 4cd2b467519721d4f948fe78dca88c30, type: 3}
       propertyPath: m_isRightToLeft
@@ -119,7 +102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7052942618841809137, guid: 4cd2b467519721d4f948fe78dca88c30, type: 3}
       propertyPath: m_Name
-      value: Rapid
+      value: MoreHP
       objectReference: {fileID: 0}
     - target: {fileID: 8910831593641988122, guid: 4cd2b467519721d4f948fe78dca88c30, type: 3}
       propertyPath: m_text

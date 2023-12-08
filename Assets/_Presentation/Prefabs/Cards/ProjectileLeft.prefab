@@ -94,11 +94,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5863537861818198604, guid: 4cd2b467519721d4f948fe78dca88c30, type: 3}
       propertyPath: _changePlayerSpeed
-      value: 1.3
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 5863537861818198604, guid: 4cd2b467519721d4f948fe78dca88c30, type: 3}
       propertyPath: _changeAttackCooldown
-      value: 0.7
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 5863537861818198604, guid: 4cd2b467519721d4f948fe78dca88c30, type: 3}
       propertyPath: _changeProjectileLeft
@@ -110,12 +110,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6062041542486431447, guid: 4cd2b467519721d4f948fe78dca88c30, type: 3}
       propertyPath: m_text
-      value: '<color=green>A lot less <color=black>Cooldown   .
+      value: '<color=green>      +10% <color=white>Player speed
 
-        <color=green>       
-        More <color=black>Player speed
+        <color=red> 
+        +10% <color=white>Cooldown
 
-        <color=red>Less  <color=black>Damage'
+        <color=red>Less  <color=white>Damage'
       objectReference: {fileID: 0}
     - target: {fileID: 6062041542486431447, guid: 4cd2b467519721d4f948fe78dca88c30, type: 3}
       propertyPath: m_isRightToLeft
@@ -128,7 +128,7 @@ PrefabInstance:
     - target: {fileID: 8910831593641988122, guid: 4cd2b467519721d4f948fe78dca88c30, type: 3}
       propertyPath: m_text
       value: "\u0412\u0430\u0448\u0430 \u0430\u0442\u0430\u043A\u0430 \u0432\u044B\u0437\u044B\u0432\u0430\u0435\u0442\n<color=green>+1
-        <color=black>\u0430\u0442\u0430\u043A\u0443"
+        <color=white>\u0430\u0442\u0430\u043A\u0443"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
